@@ -42,6 +42,8 @@ class _HomePageState extends State<HomePage> {
       body: RefreshIndicator(
         onRefresh: _refresh,
         child: Skeletonizer(
+          // ignoreContainers: true,
+          // ignorePointers: true,
           enabled: _isLoading,
           enableSwitchAnimation: true,
           child: ListView.builder(
@@ -49,25 +51,28 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(16),
             itemBuilder: (context, index) {
               return Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text(
-                          "This would be a nice headline for this card",
-                        style: TextStyle(fontSize: 20),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            BoneMock.words(4),
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          const Icon(
+                            Icons.ac_unit,
+                            size: 64,
+                          ),
+                        ],
                       ),
-                    ),
-                    ListTile(
-                      title: Text('Item ${index+1} title'),
-                      subtitle: const Text('Subtitle here'),
-                      trailing: const Icon(
-                        Icons.ac_unit,
-                        size: 32,
-                      ),
-                    ),
-                  ],
+                      const SizedBox(height: 12),
+                      Text(BoneMock.paragraph),
+                    ],
+                  ),
                 ),
               );
             },
