@@ -1,5 +1,5 @@
 name: shimmer_loading
-description: "A new Flutter project."
+description: "A new Flutter project to demonstrate shimmer effect using skeletonizer."
 publish_to: 'none'
 version: 0.1.0
 
@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  skeletonizer: ^1.4.2
 
 dev_dependencies:
   flutter_test:
